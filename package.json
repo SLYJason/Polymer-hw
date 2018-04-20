@@ -1,0 +1,19 @@
+{
+  "name": "polymer-hw",
+  "version": "1.0.0",
+  "description": "polymer hello world",
+  "main": "index.js",
+  "scripts": {
+    "start": "polymer serve & npm run watch",
+    "watch": "browser-sync start --proxy 127.0.0.1:8081 --files *.html"
+  },
+  "author": "Luyi Song <songly91.6.1@gmail.com>",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.12",
+    "@webcomponents/webcomponentsjs": "^1.0.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.7"
+  }
+}
