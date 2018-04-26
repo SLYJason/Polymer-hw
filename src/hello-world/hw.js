@@ -36,3 +36,29 @@ class PictureFrame extends PolymerElement {
     }
 }
 customElements.define('picture-frame', PictureFrame);
+
+class MyTag extends PolymerElement{
+    constructor() {
+        super();
+        this.name = 'Luyi Song'
+    }
+    static get template() {
+        return html`<p>My name is {{name}}</p>`;
+    }
+}
+customElements.define('my-tag', MyTag);
+
+class ConfigurableTagName extends PolymerElement{
+    static get properties() {
+        return {
+            owner: {
+                type: String,
+                value: "Luyi Song ",
+            }
+        };
+    }
+    static get template() {
+        return html`Name Property: [[owner]]`;
+    }
+}
+customElements.define('configurable-tag-name', ConfigurableTagName);
