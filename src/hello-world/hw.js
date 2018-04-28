@@ -94,3 +94,33 @@ class EditableName extends PolymerElement {
     }
 }
 customElements.define('editable-name', EditableName);
+
+class EmployeeList extends PolymerElement {
+    constructor() {
+        super();
+        this.employeeList = [
+            {
+                name: 'Luyi Song',
+                job: 'Software Engieer 3'
+            },
+            {
+                name: 'John Jason',
+                job: 'Software Engieer 4'
+            },
+            {
+                name: 'Todd Mike',
+                job: 'Software Engieer 5'
+            }
+        ];
+        this.name = 'j';
+    }
+    static get template() {
+        return html`
+            <dom-repeat items="employeeList">
+                <div>First name: <span>{{item.first}}</span></div>
+                <div>Last name: <span>{{item.last}}</span></div>
+                <p></p>
+            </dom-repeat>`;
+    }
+}
+customElements.define('employee-list', EmployeeList);
