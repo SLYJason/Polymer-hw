@@ -1,4 +1,6 @@
 import {PolymerElement, html} from "@polymer/polymer/polymer-element.js"
+import '@polymer/polymer/lib/elements/dom-repeat';
+
 class CustomElement extends PolymerElement {
     constructor() {
         super();
@@ -114,13 +116,32 @@ class EmployeeList extends PolymerElement {
         ];
         this.name = 'j';
     }
+    static get properties() {
+        return {
+            employees: {
+                type: Array,
+                value: [
+                    {
+                        name: 'Luyi Song',
+                        job: 'Software Engieer 3'
+                    },
+                    {
+                        name: 'John Jason',
+                        job: 'Software Engieer 4'
+                    },
+                    {
+                        name: 'Todd Mike',
+                        job: 'Software Engieer 5'
+                    }
+                ]
+            }
+        }
+    }
     static get template() {
         return html`
-            <dom-repeat items="employeeList">
-                <div>First name: <span>{{item.first}}</span></div>
-                <div>Last name: <span>{{item.last}}</span></div>
-                <p></p>
-            </dom-repeat>`;
+            <template is="dom-repeat" items="[[employees]]">
+                <div>First name: <span>{{item.name}}</span>, Job: <span>{{item.job}}</span></div>
+            </template>`;
     }
 }
 customElements.define('employee-list', EmployeeList);
