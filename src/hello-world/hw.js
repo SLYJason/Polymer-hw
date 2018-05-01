@@ -100,21 +100,6 @@ customElements.define('editable-name', EditableName);
 class EmployeeList extends PolymerElement {
     constructor() {
         super();
-        this.employeeList = [
-            {
-                name: 'Luyi Song',
-                job: 'Software Engieer 3'
-            },
-            {
-                name: 'John Jason',
-                job: 'Software Engieer 4'
-            },
-            {
-                name: 'Todd Mike',
-                job: 'Software Engieer 5'
-            }
-        ];
-        this.name = 'j';
     }
     static get properties() {
         return {
@@ -145,3 +130,43 @@ class EmployeeList extends PolymerElement {
     }
 }
 customElements.define('employee-list', EmployeeList);
+
+class IconToggle extends PolymerElement {
+    constructor() {
+        super();
+    }
+    static get template() {
+        return html`
+        <style>
+            :host {
+                display: inline-block;
+            }
+            iron-icon {
+                fill: rgba(0,0,0,0);
+                stroke: currentcolor;
+            }
+            :host([pressed]) iron-icon {
+                fill: currentcolor;
+            }
+        </style>
+        <custom-icon icon="polymer"></custom-icon>`;
+    }
+}
+customElements.define('icon-toggle', IconToggle);
+
+class CustomIcon extends PolymerElement {
+    static get properties() {
+        return {
+            icon: {
+                type: String
+            }
+        }
+    }
+    static get template() {
+        return html`
+        <embed src="../assets/compass.svg">
+        </embed>
+        `
+    }
+}
+customElements.define('custom-icon', CustomIcon);
