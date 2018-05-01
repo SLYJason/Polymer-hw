@@ -149,7 +149,7 @@ class IconToggle extends PolymerElement {
                 fill: currentcolor;
             }
         </style>
-        <custom-icon icon="polymer"></custom-icon>`;
+        <custom-icon icon="compass"></custom-icon>`;
     }
 }
 customElements.define('icon-toggle', IconToggle);
@@ -164,8 +164,12 @@ class CustomIcon extends PolymerElement {
     }
     static get template() {
         return html`
-        <embed src="../assets/compass.svg">
-        </embed>
+            <style>
+                svg {
+                    fill: red
+                }ß
+            </style>
+            <svg><embed src="../assets/[[icon]].svg"/></svg>
         `
     }
 }
