@@ -73,7 +73,11 @@
 
     <section>
         <h1>Build an element</h1>
-        <icon-toggle></icon-toggle>
+        <icon-toggle pressed></icon-toggle>
     </section>
 </body>
+<script>
+    const icon = document.querySelector('icon-toggle');
+    console.log(icon.getAttribute('pressed'));
+</script>
 </html>

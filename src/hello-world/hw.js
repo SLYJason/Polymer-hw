@@ -135,21 +135,42 @@ class IconToggle extends PolymerElement {
     constructor() {
         super();
     }
+    static get properties() {
+        return {
+            toggleIcon: {
+                type: String,
+                value: 'star'
+            },
+            pressed: {
+                type: Boolean,
+                notify: true,
+                reflectToAttribute: true,
+                value: false
+            }
+        }
+    }
+
+    toggle(e) {
+        this.pressed = !this.pressed;
+        console.log(this.pressed)
+    }
     static get template() {
         return html`
         <style>
             :host {
                 display: inline-block;
+                background-color: lightblue;
             }
-            iron-icon {
-                fill: rgba(0,0,0,0);
-                stroke: currentcolor;
+            custom-icon {
+               
             }
-            :host([pressed]) iron-icon {
-                fill: currentcolor;
+            :host([pressed]) {
+                background-color: green;
             }
         </style>
-        <custom-icon icon="compass"></custom-icon>`;
+        [[pressed]]
+        <button on-click="toggle">Toggle</button>
+        <custom-icon icon="[[toggleIcon]]"></custom-icon>`;
     }
 }
 customElements.define('icon-toggle', IconToggle);
@@ -165,11 +186,12 @@ class CustomIcon extends PolymerElement {
     static get template() {
         return html`
             <style>
-                svg {
-                    fill: red
-                }ß
+                :host {
+                    display: inline-block;
+                    height: inherit;                
+                }
             </style>
-            <svg><embed src="../assets/[[icon]].svg"/></svg>
+            <embed src="../assets/svg/[[icon]].svg"/>
         `
     }
 }
