@@ -152,7 +152,6 @@ class IconToggle extends PolymerElement {
 
     toggle(e) {
         this.pressed = !this.pressed;
-        console.log(this.pressed)
     }
     static get template() {
         return html`
