@@ -1,5 +1,6 @@
 import {PolymerElement, html} from "@polymer/polymer/polymer-element.js"
 import '@polymer/polymer/lib/elements/dom-repeat';
+import '@polymer/polymer/lib/elements/custom-style';
 
 class CustomElement extends PolymerElement {
     constructor() {
@@ -195,3 +196,23 @@ class CustomIcon extends PolymerElement {
     }
 }
 customElements.define('custom-icon', CustomIcon);
+
+class WholeStyle extends PolymerElement {
+    static get template() {
+        return html`
+            <template is="custom-style">
+                <style>
+                    /* Define a document-wide default—will not override a :host rule in  */
+                    section {
+                      --icon-toggle-outline-color: red;
+                    }
+                    /* This rule does not work! */
+                    body {
+                      --icon-toggle-color: purple;
+                      background-color: red;
+                    }
+                </style>
+            </template>`;
+    }
+}
+customElements.define('whole-style', WholeStyle);
