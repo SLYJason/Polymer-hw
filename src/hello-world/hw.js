@@ -176,3 +176,4 @@ class WholeStyle extends PolymerElement {
     }
 }
 customElements.define('whole-style', WholeStyle);
+
