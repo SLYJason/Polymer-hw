@@ -1,6 +1,7 @@
 import {PolymerElement, html} from "@polymer/polymer/polymer-element.js"
 import '@polymer/polymer/lib/elements/dom-repeat';
 import '@polymer/polymer/lib/elements/custom-style';
+import { html as HTML, render} from 'lit-html';
 
 
 class PictureFrame extends PolymerElement {
@@ -177,3 +178,17 @@ class WholeStyle extends PolymerElement {
 }
 customElements.define('whole-style', WholeStyle);
 
+const helloTemplate = (name) => HTML`<div>Hello ${name}!</div>`;
+const nameOne = 'Jason';
+const nameTwo = 'Song';
+let flag = true;
+render(helloTemplate('Steve'), document.querySelector('#lit'));
+setInterval(() => {
+    if (flag) {
+        render(helloTemplate(nameOne), document.querySelector('#lit'));
+    }
+    else {
+        render(helloTemplate(nameTwo), document.querySelector('#lit'))
+    }
+    flag = !flag;
+}, 1000);
